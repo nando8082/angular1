@@ -1,0 +1,54 @@
+<header>
+  <div class="row">
+      <nav class="navbar navbar-expand-md navbar-dark bg-dark">
+          <div><a href="" class="navbar-brand">"Heladería Don Bosco"</a></div>
+
+          <div><a href="" [routerLink]="['/listarTarjetas']" routerLinkActive="Active"
+                  class="navbar-brand">Tarjetas</a>
+          </div>
+
+          <div><a href="" [routerLink]="['/listarPedidos']" class="navbar-brand">Pedidos</a></div>
+
+          <div><a href="" class="navbar-brand" [routerLink]="['/productos']">Productos</a></div>
+
+          <div class="d-flex flex-row-reverse">
+              <div class="col">
+                  <div><a href="" [routerLink]="['/inicio']" class="navbar-brand">Mi Usuario</a></div>
+              </div>
+          </div>
+          <div><a href="" class="navbar-brand" [routerLink]="['/login']">Cerrar Sesion</a></div>
+      </nav>
+  </div>
+</header>
+
+<div class="container">
+
+     <button type="button" class="btn btn-outline-success" [routerLink]="['/agregarTarjetas']" routerLinkActive="routerLink">Agregar</button> 
+
+<table class="table table-hover">
+    <thead>
+      <tr>
+        <th scope="col">Id</th>
+        <th scope="col">Banco Emisor</th>
+        <th scope="col">Número de Tarjeta</th>
+        <th scope="col">Fecha de Caducidad</th>
+        <th scope="col">Tipo</th>
+        
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let tarjeta of lista">
+        <th scope="row">{{tarjeta.id}}</th>
+        <!-- <td>{{tarea.id}}</td> -->
+        <td>{{tarjeta.nombreTitular}}</td>
+        <td>{{tarjeta.numTarjeta}}</td>
+        <td>{{tarjeta.fechaCducidad}}</td>
+        <td>{{tarjeta.tipo}}</td>
+        <td>
+            <!-- <button type="button" class="btn btn-outline-warning" [routerLink]="['/editar',tarea.id]">Editar</button> -->
+            <button type="button" class="btn btn-outline-danger" (click)="eliminar(tarjeta.id)" >Eliminar</button>
+        </td>
+      </tr>   
+    </tbody>
+  </table>
+</div>

@@ -1,0 +1,29 @@
+<header>
+    <div class="row">
+        <nav class="navbar navbar-expand-md navbar-dark bg-dark">
+            <div><a href="" class="navbar-brand">"Heladería Don Bosco"</a></div>
+        </nav>
+    </div>
+</header>
+
+<div class="container">
+    <form action="">
+        <div class="mb-3">
+            <label for="cedula">Cédula</label>
+            <input placeholder="Cédula" id="cedula" name="cedula" [(ngModel)]="usuarioNuevo.cedula">
+        </div>
+
+        <div class="mb-3">
+            <label for="correo">Correo</label>
+            <input placeholder="Correo" id="correo" name="correo" [(ngModel)]="usuarioNuevo.correo">
+        </div>
+
+        <div class="mb-3">
+            <label for="contrasenia">Contraseña</label>
+            <input placeholder="Contraseña" id="contrasenia" name="contrasenia" [(ngModel)]="usuarioNuevo.contrasenia">
+        </div>
+
+        <button class="btn btn-outline-primary" (click)="agregarUsuario()" >Guardar</button>
+        <button class="btn btn-outline-primary" [routerLink]="['/login']" >Cancelar</button>
+    </form>
+</div>

@@ -1,0 +1,84 @@
+<header>
+  <div class="row">
+      <nav class="navbar navbar-expand-md navbar-dark bg-dark">
+          <div><a href="" class="navbar-brand">"Heladería Don Bosco"</a></div>
+
+          <div><a href="" [routerLink]="['/listarTarjetas']" routerLinkActive="Active"
+                  class="navbar-brand">Tarjetas</a>
+          </div>
+
+          <div><a href="" [routerLink]="['/listarPedidos']" class="navbar-brand">Pedidos</a></div>
+
+          <div><a href="" class="navbar-brand" [routerLink]="['/productos']">Productos</a></div>
+
+          <div><a href="" class="navbar-brand" [routerLink]="['/crearUsuario']">Crear Usuario</a></div>
+
+          <div class="d-flex flex-row-reverse">
+              <div class="col">
+                  <div><a href="" [routerLink]="['/inicio']" class="navbar-brand">Mi Usuario</a></div>
+              </div>
+          </div>
+
+          <div><a href="" class="navbar-brand" [routerLink]="['/login']">Cerrar Sesion</a></div>
+      </nav>
+  </div>
+</header>
+
+<!-- Default form register -->
+<form class="text-center border border-light p-5">
+  <p class="h4 mb-4">Agregar Tarjeta</p>
+  <div class="form-row mb-4">
+    <div class="col mb-4">
+      <!-- Banco -->
+      <input type="text" id="defaultRegisterFormFirstName" class="form-control" placeholder="Banco"
+        [(ngModel)]="tarjetaNueva.nombreTitular" name="nombreTitular">
+    </div>
+    <div class="col mb-4">
+      <!-- Número de tarjeta -->
+      <input type="text" id="defaultRegisterFormLastName" maxlength="16"
+        oninput="if(this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
+        class="form-control" placeholder="Numero tarjeta" [(ngModel)]="tarjetaNueva.numTarjeta" name="numTarjeta">
+    </div>
+    <div class="col mb-4">
+      <!-- Fechad de caducidad -->
+      <input type="text" id="defaultRegisterFormLastName" class="form-control" placeholder="Fecha de Caducidad"
+        [(ngModel)]="tarjetaNueva.fechaCducidad" name="fechaCducidad" id="fechaCducidad"  >
+
+    </div>
+    <div class="col mb-4">
+      <!-- CVV -->
+      <input type="number" id="defaultRegisterFormLastName" min="0" max="999" maxlength="3"
+        oninput="if(this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
+        class="form-control" placeholder="CVV" [(ngModel)]="tarjetaNueva.codigoCvv" name="codigoCvv">
+    </div>
+    <div class="col mb-4">
+      <!-- Last name -->
+
+      <select class="form-select form-select-sm" aria-label=".form-select-sm example" [(ngModel)]="tarjetaNueva.tipo"
+        name="tipo">
+        <option value="Debito" selected>Débito</option>
+        <option value="Credito">Crédito</option>
+      </select>
+      <span>Seleccione tipo de tarjeta</span>
+
+      <input type="hidden" id="defaultRegisterFormLastName" class="form-control" placeholder="Usuario"
+        [(ngModel)]="tarjetaNueva.idUsuario" name="idUsuario" id="idUsuario" readonly >
+
+      <!--<input type="text" id="defaultRegisterFormLastName" class="form-control" placeholder="Tipo" [(ngModel)]="tarjetaNueva.tipo">-->
+    </div>
+  </div>
+
+
+  <!-- Sign up button -->
+  <button type="button" class="btn btn-outline-success" type="submit" (click)="agregarTarjeta()" [routerLink]="['/listarTarjetas']">Guardar</button>
+  <!-- Social register 
+    <p>or sign up with:</p>-->
+
+  <hr>
+  <!-- Terms of service -->
+  <!-- <p>By clicking
+      <em>Sign up</em> you agree to our
+      <a href="" target="_blank">terms of service</a>
+    </p> -->
+</form>
+<!-- Default form register -->
